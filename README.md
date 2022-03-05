@@ -19,7 +19,9 @@
   </sub>
 </div>
 
-![30DaysOfPython](./Images/python_TreviIT.png)
+<div align="center">
+<img src="./Images/python_TreviIT.png" alt="30 Days of Python">
+</div> 
 
 - [🐍 30 Days Of Python](#-30-days-of-python)
 - [📘 Day 1](#-day-1)
@@ -33,6 +35,10 @@
     - [Natural languages vs. programming languages](#natural-languages-vs-programming-languages)
     - [What makes a language?](#what-makes-a-language)
     - [Compilation vs. interpretation](#compilation-vs-interpretation)
+    - [What does the interpreter actually do?](#what-does-the-interpreter-actually-do)
+    - [Compilation vs. interpretation - advantages and disadvantages](#Compilation-vs-interpretation)
+    - [A hobby programming project](#a-hobby-programming-project)
+    - [Python rivals?](#python-rivals)
   - [Basic Python](#basic-python)
     - [Python Syntax](#python-syntax)
     - [Python Indentation](#python-indentation)
@@ -60,7 +66,10 @@
 
 ## Introduction
 
-Python is a high-level programming language for general-purpose programming. It is an open source, interpreted, objected-oriented programming language. Python was created by a Dutch programmer, Guido van Rossum. The name of Python programming language was derived from a British sketch comedy series, *Month Python's Flying Circus*.  The first version was released on February 20, 1991. This 30 days of Python challenge will help you learn the latest version of Python, Python 3 step by step. The topics are broken down into 30 days, where each day contains several topics with easy-to-understand explanations, real-world examples, many hands on exercises and projects.
+Python is a widely-used high-level programming language with dynamic semantics, used for general-purpose programming. It is an open source, interpreted, objected-oriented programming language. 
+Python was created by a Dutch programmer born in 1956 in Haarlem, the Netherlands, Guido van Rossum. 
+The name of Python programming language was derived from a British sketch comedy series, *Month Python's Flying Circus*.  
+The first version was released on February 20, 1991. The speed with which Python has spread around the world is a result of the continuous work of thousands (very often anonymous) programmers, testers, users (many of them aren't IT specialists) and enthusiasts, but it must be said that the very first idea (the seed from which Python sprouted) came to one head - Guido's.
 
 This challenge is designed for beginners and professionals who want to learn python programming language. It may take 30 to 100 days to complete the challenge, people who actively participate on the telegram group have a high probability of completing the challenge.
 
@@ -73,8 +82,15 @@ It is omnipresent, people use numerous Python-powered devices on a daily basis, 
 There are also a couple of factors that make Python great for learning:
 
   - It is easy to learn - the time needed to learn Python is shorter than for many other languages; this means that it's possible to start the actual programming faster;
+  - it's easy to teach - the teaching workload is smaller than that needed by other languages; this means that the teacher can put more emphasis on general (language-independent) programming techniques, not wasting energy on exotic tricks, strange exceptions and incomprehensible rules;
   - It is easy to use for writing new software - it's often possible to write code faster when using Python;
+  - it's easy to understand - it's also often easier to understand someone else's code faster if it is written in Python;
   - It is easy to obtain, install and deploy - Python is free, open and multiplatform; not all languages can boast that.
+
+Of course, Python has its drawbacks, too:
+
+  - it's not a speed demon - Python does not deliver exceptional performance;
+  - in some cases it may be resistant to some simpler testing techniques - this may mean that debugging Python's code can be more difficult than with other languages; fortunately, making mistakes is always harder in Python.
 
 If you're not familiar with any other languages, Python is great to begin with, because it will give you a solid foundation and allow you to learn other programming languages (e.g., C++, Java, or C) much easier and much faster. Learning Python is fun and trendy!
 
@@ -174,13 +190,105 @@ Unfortunately, a programmer can also make mistakes with each of the above four s
 Let's assume that you've successfully written a program. How do we persuade the computer to execute it? You have to render your program into machine language. Luckily, the translation can be done by a computer itself, making the whole process fast and efficient.
 There are two different ways of _transforming a program from a high-level programming language into machine language_:
 
-  - *COMPILATION*: the source program is translated once (however, this act must be repeated each time you modify the source code) by getting a file (e.g., an .exe file if the code is intended to be run under MS Windows) containing the machine code: now you can distribute the file worldwide; the program that performs this translation is called a compiler os translator;
-  - *INTERPRETATION*: you (or any user of the code) can translate the source program each time it has to be run; the program performing this kind of transformation is called an interpreter, as it interprets the code every time it is intended to be executed; it also means that you cannot just distribute the source code as-is, because the end-user also needs the interpreter to execute it.
+  - *`COMPILATION`*: the source program is translated once (however, this act must be repeated each time you modify the source code) by getting a file (e.g., an .exe file if the code is intended to be run under MS Windows) containing the machine code: now you can distribute the file worldwide; the program that performs this translation is called a compiler os translator;
+  - *`INTERPRETATION`*: you (or any user of the code) can translate the source program each time it has to be run; the program performing this kind of transformation is called an interpreter, as it interprets the code every time it is intended to be executed; it also means that you cannot just distribute the source code as-is, because the end-user also needs the interpreter to execute it.
 
-  Due to some very fundamental reasons, a particular high-level programming language is designed to fall into one of these two categories.
-  There are very few languages that can be both compiled and interpreted. Usually, a programming language is projected with this factor in its constructors'minds - will it be compiled or interpreted?
+Due to some very fundamental reasons, a particular high-level programming language is designed to fall into one of these two categories.
+There are very few languages that can be both compiled and interpreted. Usually, a programming language is projected with this factor in its constructors'minds - will it be compiled or interpreted?
 
+### What does the interpreter actually do?
+
+Let's assume once more that you have written a program. Now, it exists as a _computer file_: a computer program is actually a piece of text, so the source code is usually placed in _text files_.
   
+→ Note: it has to be _pure text_, without any decorations like different fonts, color, embedded images or other media. Now you have to invoke the interpreter and let it read your source file.
+
+The interpreter reads the source code in a way that is common in Western culture: from top to bottom and from left to right. These are some exceptions.
+First of all, the interpreter checks if all subsequent lines are correct (using the four aspects covered earlier).
+If the compiler finds an error, it finishes its work immediately. The only result in this case is an _error message_.
+The interpreter will inform you where the error is located and what caused it. However, these messages may be misleading, as the interpreter isn't able to follow your exact intentions, and may detect errors at some distance from their real causes.
+For example, if you try to use an entity of an unknown name, it will cause an error, but the error will be discovered in the place where it tries to use the entity, not where the new entiry's name was introduced.
+If the line looks good, the interpreter tries to execute it (note: each line is usually executed separately, so the trio "read-check-execute" can repeated many times - more times than the actual number of lines in the source file, as some parts of the code may be executed more than once).
+It is also possible that a significant part of the code may be executed successfully before the interpreter finds an error. This is normal behavior in this execution model.
+You may ask now: which is better? The "compiling" model or the "interpreting" model? There is no obvious answer. If there had been, one of these models would have ceased to exist a long time ago. Both of them have their advantages and their disadvantages.
+
+### Compilation vs. interpretation - advantages and disadvantages
+
+- *`ADVANTAGES`*:
+
+  - `COMPILATION`: 
+    - the execution of the translates code is usually faster;
+    - only the user has to have the compiler - the end-user may use the code without it;
+    - the translated code is stored using machine language - as it is very hard to understand it, your own inventions and programming tricks are likely to remain your secret.
+
+  - `INTERPRETATION`:
+    - you can run the code as soon as you complete it - there are no additional phases of translation;
+    - the code is stored using programming language, not the machine one - this means that it can be run on computers using different machine language; you don't compile your code separately for each different architecture.
+
+- *`DISADVANTAGES`*:
+
+  - `COMPILATION`:
+    - the compilation itself may be a very time-consuming process - you may not be able to run your code immediately after any amendment;
+    - you have to have as many compilers as hardware platforms you want your code to be run on.
+
+  - `INTERPRETATION`:
+    - don't expect that interpretation will ramp your code to high speed - your code will share the computer's power with the interpreter, so it can't be really fast;
+    - both you and the end user have to have the interpreter to run your code.
+
+#### → What does this all mean for you?
+
+  - Python is an _interpreted language_. This means that is inherits all the described advantages and disadvantages. Of course, it adds some of its unique features to both sets;
+  - If you want to program in python, you'll need the _Python interpreter_. You won't be able to run your code without it. Fortunately, _Python is free_. This is one of its most important advantages.
+    
+Due to historical reasons, languages designed to be utilized in the interpretation manner are often called _scripting languages_, while the source programs encoded using them are called _scripts_.
+
+### A hobby programming project
+
+The circumstances in which Python was created are a bit puzzling. According to Guido van Rossum:
+
+  _"In December 1989, I was looking for a "hobby" programming project that would keep me occupied during the week around Christmas. My office (...) would be closed, but I had a home computer, and not much else on my hands. I decided to write an interpreter for the new scripting language I had been thinking about lately: a descendant of ABC that would appeal to Unix/C hackers. I chose Python as a working title for the project, being in a slightly irreverent mood (and a big fan of Monty Python's Flying Circus). -- Guido van Rossum"_
+
+  #### Python goals
+
+  In 1999, Guido van Rossum, defined his goals for Python:
+
+  - an _easy and intuitive_ language just as powerful as those of the major competitors;
+  - _open source_, so anyone can contribute to its development:
+  - code that is as _understandable_ as plain English;
+  - _suitable for everyday tasks_, allowing for short development times.
+
+About 20 years later, it is clear that all these intentions have been fulfilled. Some sources say that Python is the most popular programming language in the world, while others claim it's the second or the third.
+
+Python isn't a young language anymore. It is mature and trustworthy. It's not a one-hit wonder. It's a bright star in the programming firmament, and time spent learning Python is a very good investment.
+
+### Python rivals?
+
+Python has two direct competitors, with comparable properties and predispositions. These are:
+
+  - Perl - a scripting language originally authored by Larry Wall;
+  - Ruby - a scripting language originally authored by Yukihiro Matsumoto.
+
+The former is more traditional, more conservative than Python, and resembles some of the good old languages derived from the classic C programming language.
+
+In contrast, the latter is more innovative and more full of fresh ideas than Python. Python itself lies somewhere between these two creations.
+
+The Internet is full of forums with infinite discussions on the superiority of one of these three over the others, should you wish to learn more about each of them.
+
+  #### Where can we see Python in action?
+
+We see it every day and almost everywhere. It's used extensively to implement complex _Internet services_ like search engines, cloud storage and tools, social media and so on. Whenever you use any of these services, you are actually very close to Python, although you wouldn't know it.
+
+Many _developing tools_ are implemented in Python. More and more _everyday use applications_ are being written in Python. Lots of _scientists_ have abandoned expensive proprietary tools and switched to Python. Lots of IT project _testers_ have started using Python to carry out repeatable test procedures. The list is long.
+
+  #### Why not Python?
+
+Despite Python's growing popularity, there are still some niches where Python is absent, or is rarely seen:
+
+  - _low-level programming_ (sometimes called "close to metal" programming): if you want to implement an extremely effective driver or graphical engine, you wouldn't use Python;
+  - _applications for mobile devices_: although this territory is still waiting to be conquered by Python, it will most likely happen someday.
+
+
+
+
 
 ## Basic Python
 
