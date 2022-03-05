@@ -3,6 +3,37 @@
 |# Day | Topics                                                    |
 |------|:---------------------------------------------------------:|
 | 01  |  [Introduction](./readme.md)|
+| 02  |  [Variables, Built-in Functions](./02_Day_Variables_builtin_functions/02_variables_builtin_functions.md)|
+| 03  |  [Operators](./03_Day_Operators/03_operators.md)|
+| 04  |  [Strings](./04_Day_Strings/04_strings.md)|
+| 05  |  [Lists](./05_Day_Lists/05_lists.md)|
+| 06  |  [Tuples](./06_Day_Tuples/06_tuples.md)|
+| 07  |  [Sets](./07_Day_Sets/07_sets.md)|
+| 08  |  [Dictionaries](./08_Day_Dictionaries/08_dictionaries.md)|
+| 09  |  [Conditionals](./09_Day_Conditionals/09_conditionals.md)|
+| 10  |  [Loops](./10_Day_Loops/10_loops.md)|
+| 11  |  [Functions](./11_Day_Functions/11_functions.md)|
+| 12  |  [Modules](./12_Day_Modules/12_modules.md)|
+| 13  |  [List Comprehension](./13_Day_List_comprehension/13_list_comprehension.md)|
+| 14  |  [Higher Order Functions](./14_Day_Higher_order_functions/14_higher_order_functions.md)|     
+| 15  |  [Python Type Errors](./15_Day_Python_type_errors/15_python_type_errors.md)| 
+| 16 |  [Python Date time](./16_Day_Python_date_time/16_python_datetime.md) |     
+| 17 |  [Exception Handling](./17_Day_Exception_handling/17_exception_handling.md)|    
+| 18 |  [Regular Expressions](./18_Day_Regular_expressions/18_regular_expressions.md)|    
+| 19 |  [File Handling](./19_Day_File_handling/19_file_handling.md)|
+| 20 |  [Python Package Manager](./20_Day_Python_package_manager/20_python_package_manager.md)|
+| 21 |  [Classes and Objects](./21_Day_Classes_and_objects/21_classes_and_objects.md)|
+| 22 |  [Web Scraping](./22_Day_Web_scraping/22_web_scraping.md)|
+| 23 |  [Virtual Environment](./23_Day_Virtual_environment/23_virtual_environment.md)|
+| 24 |  [Statistics](./24_Day_Statistics/24_statistics.md)|
+| 25 |  [Pandas](./25_Day_Pandas/25_pandas.md)|
+| 26 |  [Python web](./26_Day_Python_web/26_python_web.md)|
+| 27 |  [Python with MongoDB](./27_Day_Python_with_mongodb/27_python_with_mongodb.md)|
+| 28 |  [API](./28_Day_API/28_API.md)|
+| 29 |  [Building API](./29_Day_Building_API/29_building_API.md)|
+| 30 |  [Conclusions](./30_Day_Conclusions/30_conclusions.md)|
+
+🐍🇺🇦🐍 HAPPY CODING 🐍🇺🇦🐍
 
 <div align="center">
   <h1> 30 Days Of Python: Day 1 - Introduction</h1>
@@ -52,11 +83,7 @@
       - [Tuple](#tuple)
       - [Set](#set)
     - [Checking Data types](#checking-data-types)
-    - [Python File](#python-file)
-  - [💻 Exercises - Day 1](#-exercises---day-1)
-    - [Exercise: Level 1](#exercise-level-1)
-    - [Exercise: Level 2](#exercise-level-2)
-    - [Exercise: Level 3](#exercise-level-3)
+    - [Python File](#python-file)el-3)
 
   # 📘 Day 1
 
@@ -206,7 +233,7 @@ The interpreter reads the source code in a way that is common in Western culture
 First of all, the interpreter checks if all subsequent lines are correct (using the four aspects covered earlier).
 If the compiler finds an error, it finishes its work immediately. The only result in this case is an _error message_.
 The interpreter will inform you where the error is located and what caused it. However, these messages may be misleading, as the interpreter isn't able to follow your exact intentions, and may detect errors at some distance from their real causes.
-For example, if you try to use an entity of an unknown name, it will cause an error, but the error will be discovered in the place where it tries to use the entity, not where the new entiry's name was introduced.
+For example, if you try to use an entity of an unknown name, it will cause an error, but the error will be discovered in the place where it tries to use the entity, not where the new entity's name was introduced.
 If the line looks good, the interpreter tries to execute it (note: each line is usually executed separately, so the trio "read-check-execute" can repeated many times - more times than the actual number of lines in the source file, as some parts of the code may be executed more than once).
 It is also possible that a significant part of the code may be executed successfully before the interpreter finds an error. This is normal behavior in this execution model.
 You may ask now: which is better? The "compiling" model or the "interpreting" model? There is no obvious answer. If there had been, one of these models would have ceased to exist a long time ago. Both of them have their advantages and their disadvantages.
@@ -286,11 +313,167 @@ Despite Python's growing popularity, there are still some niches where Python is
   - _low-level programming_ (sometimes called "close to metal" programming): if you want to implement an extremely effective driver or graphical engine, you wouldn't use Python;
   - _applications for mobile devices_: although this territory is still waiting to be conquered by Python, it will most likely happen someday.
 
-
-
-
-
 ## Basic Python
+
+#### Hello, World!
+
+It's time to start writing some real, working Python code. It'll be very simple for the time being.
 
 ### Python Sintax
 
+A Python script can be written in Python interactive shell or in the code editor. A Python file has an extension ".py".
+
+### Python Indentation
+
+An indentation is a white space in a text. Indentation in many languages is used to increase code readability, however Python uses indentation to create block of codes. In other programming languages curly brackets are used to create blocks of codes instead od indentation. One of the common bugs when writing python code is wrong indentation.
+
+### Comments
+
+Comments are very important to make the code more readable and to leave remarks in our code. Python does not run comment parts of our code.Any text starting with hash(#) in Python is a comment.
+
+**Example: Single Line Comment**
+
+```shell
+    # This is the first comment
+    # This is the second comment
+    # Python is eating the world
+```
+
+**Example: Multiple Comment**
+
+Triple quote can be used for multiple comment if it is not assigned to a variable
+
+```shell
+"""This is multiline comment
+multiline comment takes multiple lines.
+python is eating the world
+"""
+```
+
+### Data types
+
+In Python there are several types of data types. Let get started with the most commom ones. Different data types will be covered in detail in other sections. For the time being, let just go through the different data types and get familiar with them. 
+#### Number
+
+  - *Integer*: Integer(negative, zero and positive) numbers
+        Example: ... -3, -2, -1, 0, 1, 2, 3 ... 
+  - *Float*: Decimal numbers
+        Example: -3.5, -2.25, -1.0, 0.0, 1.1, 2.2, 3.5
+  - *Complex*: 
+        Example 1 + j, 2 + 4j  
+#### String
+
+A collection of one or more characters under a single or double quote. If a string is more than one sentence then we use a triple quote.
+
+**Example:**
+
+```py
+'Case'
+'Chiba City'
+"Python"
+"I love teaching"
+'I hope you are enjoying the first day of 30DaysOfPython Challenge'
+```
+
+#### Booleans
+
+A boolean data type is either a True or False value. T and F should be always uppercase.
+
+**Example:**
+
+```python
+    True  #  Is the light on? If it is on, then the value is True
+    False # Is the light on? If it is off, then the value is False
+```
+
+#### List
+
+Python list is an ordered collection which allows to store different data type items, using []. A list is similar to an array.
+
+**Example:**
+
+```py
+[0, 1, 2, 3, 4, 5]  # all are the same data types - a list of numbers
+['Banana', 'Orange', 'Mango', 'Avocado'] # all the same data types - a list of strings (fruits)
+['Finland','Estonia', 'Sweden','Norway'] # all the same data types - a list of strings (countries)
+['Banana', 10, False, 9.81] # different data types in the list - string, integer, boolean and float
+```
+
+#### Dictionary
+
+A Python dictionary object is an unordered collection of data in a key value pair format, using {}.
+
+**Example:**
+
+```py
+{
+'first_name':'Case',
+'last_name':'Sprawl',
+'country':'Chiba City', 
+'age':99, 
+'is_married':False,
+'skills':['Python', 'Linux', 'ETH']
+}
+```
+
+#### Tuple
+
+A tuple is an ordered collection of different data types like list, but tuples cannot be modified once they are created. They are immutable.
+
+**Example:**
+
+```py
+('Case', 'Sprawl', 'Gibson', 'William', 'Molly') # Names
+```
+
+```py
+('Earth', 'Jupiter', 'Neptune', 'Mars', 'Venus', 'Saturn', 'Uranus', 'Mercury') # planets
+```
+
+#### Set
+
+A set is a collection of data types similar to list and tuple. Unlike them, a set is not an ordered collection of items. Like in Mathematics, set in Python stores only unique items. 
+
+**Example:**
+
+```py
+{2, 4, 3, 5}
+{3.14, 9.81, 2.7} # order is not important in set
+```
+
+### Checking Data types
+
+To check the data type of certain data/variable we use the **type** function.
+
+### Python File
+
+First open your project folder, inside this folder, create a file called "helloworld.py". 
+To see our results, we should use a built in function *print()*. The *print()* built-in function takes one or more arguments as follows *print('argument1', 'argument2', 'argument3')*. See the examples below.
+
+**Example:**
+
+The file name is helloworld.py
+
+```py
+# Day 1 - 30DaysOfPython Challenge
+
+print(2 + 3)             # addition(+)
+print(3 - 1)             # subtraction(-)
+print(2 * 3)             # multiplication(*)
+print(3 / 2)             # division(/)
+print(3 ** 2)            # exponential(**)
+print(3 % 2)             # modulus(%)
+print(3 // 2)            # Floor division operator(//)
+
+# Checking data types
+print(type(10))          # Int
+print(type(3.14))        # Float
+print(type(1 + 3j))      # Complex number
+print(type('Case'))  # String
+print(type([1, 2, 3]))   # List
+print(type({'name':'Case'})) # Dictionary
+print(type({9.8, 3.14, 2.7}))    # Set
+print(type((9.8, 3.14, 2.7)))    # Tuple
+```
+
+[Day 2 >>](./02_Day_Variables_builtin_functions/02_variables_builtin_functions.md)
