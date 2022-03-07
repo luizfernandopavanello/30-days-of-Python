@@ -25,7 +25,9 @@
       - [The escape and newline characters](#escape_characters)
       - [The keyword arguments](#the_keyword_arguments)
   - [Variables](#variables)
+    - [Correct and incorrect variable names](#correct-and-incorrect-variable-names)
     - [Declaring Multiple Variable in a Line](#declaring-multiple-variable-in-a-line)
+    - [Assigning a new value to an already existing variable](#assigning-new-value)
   - [Data Types](#data-types)
   - [Checking Data types and Casting](#checking-data-types-and-casting)
   - [Numbers](#numbers)
@@ -196,3 +198,93 @@ In order to use it, it is necessary to know some rules:
 
 9. The end and sep parameters can be used for formatting the output of the print() function. The sep parameter specifies the separator between the outputted arguments (e.g., print("H", "E", "L", "L", "O", sep="-"), whereas the end parameter specifies what to print at the end of the print statement.
 
+## Variables
+
+You already know that you can do some arithmetic operations with these numbers: add, subtract, etc. You'll be doing that many times.
+
+But it's quite a normal question to ask how to _store the results_ of these operations, in order to use them in other operations, and so on.
+
+How do you save the intermediate results, and use them again to produce subsequent ones?
+
+Python will help you with that. It offers special "boxes" (containers) for that purpose, and these boxes are called *variables* - the name itself suggests that the content of these containers can be varied in (almost) any way.
+
+What does every Python variable have?
+
+  - a name;
+  - a value (the content of the container)
+
+Let's start with the issues related to a variable's name.
+
+Variables do not appear in a program automatically. As developer, you must decide how many and which variables to use in your programs.
+
+You must also name them. A variable can have a short name, but a more descriptive name is highly recommended.
+
+If you want to _give a name to a variable_, you must follow some strict rules:
+
+  - the name of the variable must be composed of upper-case or lower-case letters, digits, and the character _ (underscore)
+  - the name of the variable must begin with a letter;
+  - the underscore character is a letter;
+  - upper- and lower-case letters are treated as different (a little differently than in the real world - Alice and ALICE are the same first names, but in Python they are two different variable names, and consequently, two different variables);
+  - the name of the variable must not be any of Python's reserved words. 
+
+### Correct and incorrect variable names
+
+Note that the same restrictions apply to function names.
+
+Python _does not impose restrictions on the length of variable names_, but that doesn't mean that a long variable name is always better than a short one.
+
+We will use standard Python variable naming style which has been adopted by many Python developers, _snake case_(snake_case) variable naming convention. We use _underscore character_ after each word for a variable containing more than one word(eg. first_name, last_name, engine_rotation_speed).
+
+Here are some correct, but not always convenient variable names:
+
+MyVariable, i, t34, Exchange_Rate, counter, days_to_christmas, TheNameIsSoLongThatYouWillMakeMistakesWithIt, _.
+
+Moreover, Python lets you use not only Latin letters but also characters specific to languages that use other alphabets.
+
+These variable names are also correct:
+
+Adiós_Señora, sûr_la_mer, Einbahnstraße, переменная.
+
+And now for some incorrect names:
+
+10t (does not begin with a letter), Exchange Rate (contains a space)
+
+*NOTE*
+
+The *PEP 8 -- Style Guide for Python Code* recommends the following naming convention for variables and functions in Python:
+
+  - variable names should be lowercase, with words separated by underscores to improve readability (e.g., var, my_variable)
+  - function names follow the same convention as variable names (e.g., fun, my_function)
+  - it's also possible to use mixed case (e.g., myVariable), but only in contexts where that's already the prevailing style, to retain backwards compatibility with the adopted convention.
+
+### Assigning a new value to an already existing variable
+
+How do you assign a new value to an already created variable? In the same way. You just need to use the equal sign.
+
+The equal sign is in fact an *assignment operator*. Although this may sound strange, the operator has a simple syntax and unambiguous interpretation.
+
+It assigns the value of its right argument to the left, while the right argument may be an arbitrarily complex expression involving literals, operators and already defined variables.
+
+Look at the code below:
+
+```
+var = 1
+print(var) # 1
+var = var + 1
+print(var) # 2
+```
+
+  - The first line of the snippet creates a new variable named var and assigns 1 to it.
+  -  The statement reads: assign a value of 1 to a variable named var.
+  - We can say it shorter: assign 1 to var.
+  - Some prefer to read such a statement as: var becomes 1.
+
+The third line assigns the same variable with the new value taken from the variable itself, summed with 1. Seeing a record like that, a mathematician would probably protest - no value may be equal to itself plus one. This is a contradiction. But Python treats the sign = not as equal to, but as assign a value.
+
+So how do you read such a record in the program?
+
+Take the current value of the variable var, add 1 to it and store the result in the variable var.
+
+In effect, the value of variable var has been incremented by one, which has nothing to do with comparing the variable with any value.
+
+[<< Day 1](../readme.md) | [Day 3 >>](../03_Day_Operators/03_operators.md)
