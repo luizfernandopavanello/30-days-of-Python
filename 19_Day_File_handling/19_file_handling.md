@@ -55,7 +55,7 @@ open('filename', mode) # mode(r, a, w, x, t,b)  could be to read, write, update
 
 ### Opening Files for Reading
 
-The default mode of _open_ is reading, so we do not have to specify 'r' or 'rt'. I have created and saved a file named reading_file_example.txt in the files directory. Let us see how it is done:
+The default mode of _open_ is reading, so we do not have to specify 'r' or 'rt'. 
 
 ```py
 f = open('./files/reading_file_example.txt')
@@ -145,7 +145,7 @@ f.close()
 ['This is an example to show how to open a file and read.', 'This is the second line of the text.']
 ```
 
-After we open a file, we should close it. There is a high tendency of forgetting to close them. There is a new way of opening files using _with_ - closes the files by itself. Let us rewrite the the previous example with the _with_ method:
+After we open a file, we should close it. There is a high tendency of forgetting to close them. There is a new way of opening files using _with_ - closes the files by itself. Let us rewrite the previous example with the _with_ method:
 
 ```py
 with open('./files/reading_file_example.txt') as f:
@@ -216,20 +216,20 @@ _Example:_
 ```py
 # dictionary
 person_dct= {
-    "name":"Asabeneh",
-    "country":"Finland",
+    "name":"Case",
+    "country":"Chiba City Blue",
     "city":"Helsinki",
-    "skills":["JavaScrip", "React","Python"]
+    "skills":["Linux", "React","Python"]
 }
 # JSON: A string form a dictionary
-person_json = "{'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'skills': ['JavaScrip', 'React', 'Python']}"
+person_json = "{'name': 'Case', 'country': 'Chiba City Blue', 'city': 'Helsinki', 'skills': ['Linux', 'React', 'Python']}"
 
 # we use three quotes and make it multiple line to make it more readable
 person_json = '''{
-    "name":"Asabeneh",
-    "country":"Finland",
+    "name":"Case",
+    "country":"Chiba City Blue",
     "city":"Helsinki",
-    "skills":["JavaScrip", "React","Python"]
+    "skills":["Linux", "React","Python"]
 }'''
 ```
 
@@ -241,10 +241,10 @@ To change a JSON to a dictionary, first we import the json module and then we us
 import json
 # JSON
 person_json = '''{
-    "name": "Asabeneh",
-    "country": "Finland",
-    "city": "Helsinki",
-    "skills": ["JavaScrip", "React", "Python"]
+    "name":"Case",
+    "country":"Chiba City Blue",
+    "city":"Helsinki",
+    "skills":["Linux", "React","Python"]
 }'''
 # let's change JSON to dictionary
 person_dct = json.loads(person_json)
@@ -256,8 +256,8 @@ print(person_dct['name'])
 ```sh
 # output
 <class 'dict'>
-{'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'skills': ['JavaScrip', 'React', 'Python']}
-Asabeneh
+{'name': 'Case', 'country': 'Chiba City Blue', 'city': 'Helsinki', 'skills': ['Linux', 'React', 'Python']}
+Case
 ```
 
 ### Changing Dictionary to JSON
@@ -268,10 +268,10 @@ To change a dictionary to a JSON we use _dumps_ method from the json module.
 import json
 # python dictionary
 person = {
-    "name": "Asabeneh",
-    "country": "Finland",
-    "city": "Helsinki",
-    "skills": ["JavaScrip", "React", "Python"]
+    "name":"Case",
+    "country":"Chiba City Blue",
+    "city":"Helsinki",
+    "skills":["Linux", "React","Python"]
 }
 # let's convert it to  json
 person_json = json.dumps(person, indent=4) # indent could be 2, 4, 8. It beautifies the json
@@ -285,14 +285,14 @@ print(person_json)
 # JSON does not have type, it is a string type.
 <class 'str'>
 {
-    "name": "Asabeneh",
-    "country": "Finland",
-    "city": "Helsinki",
-    "skills": [
-        "JavaScrip",
-        "React",
+    "name":"Case",
+    "country":"Chiba City Blue",
+    "city":"Helsinki",
+    "skills":[
+        "Linux", 
+        "React", 
         "Python"
-    ]
+        ]
 }
 ```
 
@@ -304,10 +304,10 @@ We can also save our data as a json file. Let us save it as a json file using th
 import json
 # python dictionary
 person = {
-    "name": "Asabeneh",
-    "country": "Finland",
-    "city": "Helsinki",
-    "skills": ["JavaScrip", "React", "Python"]
+    "name":"Case",
+    "country":"Chiba City Blue",
+    "city":"Helsinki",
+    "skills":["Linux", "React","Python"]
 }
 with open('./files/json_example.json', 'w', encoding='utf-8') as f:
     json.dump(person, f, ensure_ascii=False, indent=4)
@@ -323,7 +323,7 @@ CSV stands for comma separated values. CSV is a simple file format used to store
 
 ```csv
 "name","country","city","skills"
-"Asabeneh","Finland","Helsinki","JavaScript"
+"Case", "Chiba City Blue", "Helsinki", "Linux", "React","Python"
 ```
 
 **Example:**
@@ -347,7 +347,7 @@ with open('./files/csv_example.csv') as f:
 ```sh
 # output:
 Column names are :name, country, city, skills
-        Asabeneh is a teacher. He lives in Finland, Helsinki.
+        Case is a teacher. He lives in Chiba City Blue, Helsinki.
 Number of lines:  2
 ```
 
@@ -369,12 +369,12 @@ XML is another structured data format which looks like HTML. In XML the tags are
 
 ```xml
 <?xml version="1.0"?>
-<person gender="female">
-  <name>Asabeneh</name>
-  <country>Finland</country>
+<person gender="male">
+  <name>Case</name>
+  <country>Chiba City Blue</country>
   <city>Helsinki</city>
   <skills>
-    <skill>JavaScrip</skill>
+    <skill>Linux</skill>
     <skill>React</skill>
     <skill>Python</skill>
   </skills>
@@ -402,3 +402,5 @@ field: country
 field: city
 field: skills
 ```
+
+[<< Day 18](../18_Day_Regular_expressions/18_regular_expressions.md) | [Day 20 >>](../20_Day_Python_package_manager/20_python_package_manager.md)
